@@ -9,26 +9,34 @@ function clockAndTime(){
         hour = date.getHours();
         minutes = date.getMinutes();
         seconds = date.getSeconds();
-        milliSeconds = date.getMilliseconds();
         namesDays = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
         namesMonths = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-        dateName = document.querySelector('.date_Name'),
-        dateNumber = document.querySelector('.date_Number'),
-        dateMonth = document.querySelector('.date_Month'),
-        dateYear = document.querySelector('.date_Year'),
         hourNumber = document.querySelector('.hour_Number'),
         hourMinutes = document.querySelector('.hour_Minutes'),
         hourSeconds = document.querySelector('.hour_Seconds'),
-        hourMilliSeconds = document.querySelector('.hour_MilliSeconds');
+        hourMilliSeconds = document.querySelector('.hour_MilliSeconds'),
+        dateSection = document.querySelector('.date_Section');
+
+    dateSection.innerHTML = `<p class='date_info'>
+                        ${namesDays[dayName]} ${dayNumber}, ${namesMonths[month]} de ${year} 
+                        </p>`;
+    if((hour - 12) < 10){
+        hourNumber.innerHTML = `0${hour - 12}`;
+    } else {
+        hourNumber.innerHTML = `${hour - 12}`;
+    }
+
+    if(minutes < 10){
+        hourMinutes.innerHTML = `0${minutes}`;
+    } else {
+        hourMinutes.innerHTML = `${minutes}`;
+    }
+    if(seconds < 10){
+        hourSeconds.innerHTML = `0${seconds}`;
+    } else{
+        hourSeconds.innerHTML = `${seconds}`;
+    }
     
-    dateName.innerHTML = `${namesDays[dayName]}&nbsp`;
-    dateNumber.innerHTML = `${dayNumber}&nbsp`;
-    dateMonth.innerHTML = ` de ${namesMonths[month]} de `;
-    dateYear.innerHTML = `&nbsp${year}`;
-    hourNumber.innerHTML = `${hour}`;
-    hourMinutes.innerHTML = `${minutes}`;
-    hourSeconds.innerHTML = `${seconds}`;
-    hourMilliSeconds.innerHTML = `${milliSeconds}`
 }
 
-call = setInterval(clockAndTime, 100);
+call = setInterval(clockAndTime, 10);
