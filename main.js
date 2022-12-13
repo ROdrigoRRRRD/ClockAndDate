@@ -15,7 +15,9 @@ function clockAndTime(){
         hourMinutes = document.querySelector('.hour_Minutes'),
         hourSeconds = document.querySelector('.hour_Seconds'),
         hourMilliSeconds = document.querySelector('.hour_MilliSeconds'),
-        dateSection = document.querySelector('.date_Section');
+        dateSection = document.querySelector('.date_Section'),
+        imageSection = document.querySelector('.image_Section'),
+        abbreviation = document.querySelector('.hour_abbreviation');
 
     dateSection.innerHTML = `<p class='date_info'>
                         ${namesDays[dayName]} ${dayNumber}, ${namesMonths[month]} de ${year} 
@@ -36,7 +38,17 @@ function clockAndTime(){
     } else{
         hourSeconds.innerHTML = `${seconds}`;
     }
-    
+    if(hour > 8 && hour < 20){
+        imageSection.innerHTML =  `<img class="image_Cycle" src="./images/oceano.png" alt="Imagen del siclo del día">`;
+    } else {
+        imageSection.innerHTML =  `<img class="image_Cycle" src="./images/noche.png" alt="Imagen del siclo del día">`
+    }
+
+    if(hour > 0 && hour < 12){
+        abbreviation.innerHTML = `A.M`;
+    } else {
+        abbreviation.innerHTML = `P.M`;
+    }
 }
 
-call = setInterval(clockAndTime, 10);
+call = setInterval(clockAndTime, 100);
