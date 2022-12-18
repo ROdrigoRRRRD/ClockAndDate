@@ -1,4 +1,5 @@
 let call;
+const switchButton = document.querySelector('.element_switch');
 
 function clockAndTime(){
     let date = new Date(),
@@ -22,10 +23,15 @@ function clockAndTime(){
     dateSection.innerHTML = `<p class='date_info'>
                         ${namesDays[dayName]} ${dayNumber}, ${namesMonths[month]} de ${year} 
                         </p>`;
-    if((hour - 12) < 10){
+    if((hour - 12) > 0  && (hour - 12) < 10){
         hourNumber.innerHTML = `0${hour - 12}`;
-    } else {
+    } else if (hour >= 22 && hour <= 24){
         hourNumber.innerHTML = `${hour - 12}`;
+    } else {
+        hourNumber.innerHTML = `${hour}`;
+    }
+    if (hour == 0){
+        hourNumber.innerHTML = `12`;
     }
 
     if(minutes < 10){
@@ -41,10 +47,11 @@ function clockAndTime(){
     if(hour > 8 && hour < 20){
         imageSection.innerHTML =  `<img class="image_Cycle" src="./images/oceano.png" alt="Imagen del siclo del día">`;
     } else {
-        imageSection.innerHTML =  `<img class="image_Cycle" src="./images/noche.png" alt="Imagen del siclo del día">`
+        imageSection.innerHTML =  `<img class="image_Cycle" src="./images/noche.png" alt="Imagen del siclo de noche">`
     }
+    console.log(hour);
 
-    if(hour > 0 && hour < 12){
+    if(hour < 12){
         abbreviation.innerHTML = `A.M`;
     } else {
         abbreviation.innerHTML = `P.M`;
@@ -52,3 +59,9 @@ function clockAndTime(){
 }
 
 call = setInterval(clockAndTime, 100);
+
+switchButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    switchButton.classList.toggle('active');
+
+})
