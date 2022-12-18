@@ -205,11 +205,3 @@ body.dark .hourAbbreviation_Section:hover{
     width: 150px;
     margin: auto;
 }
-
-.twoPoints{
-    font-size: 10em;
-    font-family: 'Anton', sans-serif;
-    justify-content: center;
-    align-items: center;
-    margin-top: 45px;
-}
