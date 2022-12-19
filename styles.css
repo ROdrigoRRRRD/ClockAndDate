@@ -205,3 +205,32 @@ body.dark .hourAbbreviation_Section:hover{
     width: 150px;
     margin: auto;
 }
+
+@media (max-width: 880px){
+    .date_info{
+        font-size: 2em;
+        text-align: center;
+    }
+    .hour-Section{
+        display: grid;
+        grid-template-columns: repeat(2, 180px);
+    }
+    .hourNumber_Section, .hourMinutes_Section, .hourSeconds_Section, .hourAbbreviation_Section{
+        height: 200px;
+        width: 180px;
+        font-size: .6em;
+    }
+    .image_Cycle{
+        width: 70px;
+    }
+}
+
+@media(max-width: 390px){
+    .hour-Section{
+        display: grid;
+        grid-template-columns: repeat(2, 170px);
+    }
+    .hourNumber_Section, .hourMinutes_Section, .hourSeconds_Section, .hourAbbreviation_Section{
+        width: 170px;
+    }
+}
