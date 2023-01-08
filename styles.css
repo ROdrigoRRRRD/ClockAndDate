@@ -7,6 +7,11 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: DS-Digital;
+    src: url(./Font/DS-DIGIT.TTF);
+}
+
 body{
     background-color: rgb(240, 248, 255);
     height: 100vh;
@@ -94,7 +99,7 @@ body.dark .info_Section{
 }
 
 .hour-Section{
-    font-family: 'Anton', sans-serif;
+    font-family: DS-Digital;
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -234,3 +239,4 @@ body.dark .hourAbbreviation_Section:hover{
         width: 170px;
     }
 }
+

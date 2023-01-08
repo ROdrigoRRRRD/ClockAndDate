@@ -1,24 +1,23 @@
-let call;
+let call, checkSecond;
 const switchButton = document.querySelector('.element_switch');
 
 function clockAndTime(){
     let date = new Date(),
-        dayNumber = date.getDate(),
-        dayName = date.getDay(),
-        month = date.getMonth();
-        year = date.getFullYear();
-        hour = date.getHours();
-        minutes = date.getMinutes();
-        seconds = date.getSeconds();
-        namesDays = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-        namesMonths = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-        hourNumber = document.querySelector('.hour_Number'),
-        hourMinutes = document.querySelector('.hour_Minutes'),
-        hourSeconds = document.querySelector('.hour_Seconds'),
-        hourMilliSeconds = document.querySelector('.hour_MilliSeconds'),
-        dateSection = document.querySelector('.date_Section'),
-        imageSection = document.querySelector('.image_Section'),
-        abbreviation = document.querySelector('.hour_abbreviation');
+    dayNumber = date.getDate(),
+    dayName = date.getDay(),
+    month = date.getMonth(),
+    year = date.getFullYear(),
+    hour = date.getHours(),
+    minutes = date.getMinutes(),
+    seconds = date.getSeconds(),
+    namesDays = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+    namesMonths = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+    hourNumber = document.querySelector('.hour_Number'),
+    hourMinutes = document.querySelector('.hour_Minutes'),
+    hourSeconds = document.querySelector('.hour_Seconds'),
+    dateSection = document.querySelector('.date_Section'),
+    imageSection = document.querySelector('.image_Section'),
+    abbreviation = document.querySelector('.hour_abbreviation');
 
     dateSection.innerHTML = `<p class='date_info'>
                         ${namesDays[dayName]} ${dayNumber}, ${namesMonths[month]} de ${year} 
@@ -49,7 +48,6 @@ function clockAndTime(){
     } else {
         imageSection.innerHTML =  `<img class="image_Cycle" src="./images/noche.png" alt="Imagen del siclo de noche">`
     }
-    console.log(hour);
 
     if(hour < 12){
         abbreviation.innerHTML = `A.M`;
