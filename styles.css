@@ -13,7 +13,7 @@
 }
 
 body{
-    background-color: rgb(240, 248, 255);
+    background-color: hsl(185deg, 41%, 84%);
     height: 100vh;
     position: relative;
     transition: .3s ease all;
